@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 106676410}
   - component: {fileID: 106676409}
   - component: {fileID: 106676408}
+  - component: {fileID: 106676412}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -305,13 +306,28 @@ RectTransform:
   - {fileID: 627834785}
   - {fileID: 2051955405}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &106676412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106676407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21af9d90f6440ee41bc53d8f67c78974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighScore: 0
+  HighScoreUI: {fileID: 1539990906}
+  InputNameUI: {fileID: 1449611869}
 --- !u!1 &627834784
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +412,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1127146058}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 106676412}
+        m_TargetAssemblyTypeName: MenuUiHandler, Assembly-CSharp
         m_MethodName: StartButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -681,7 +697,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 16
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -880,7 +896,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighScore: 0
-  HighScoreText: {fileID: 1539990906}
+  SavedUserName: 
+  SavedHScoreUserName: 
 --- !u!1 &1165997794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1078,7 @@ GameObject:
   - component: {fileID: 1449611870}
   - component: {fileID: 1449611869}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InputName(UseThisForReference)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1249,7 +1266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539990904
 GameObject:
@@ -1263,7 +1280,7 @@ GameObject:
   - component: {fileID: 1539990907}
   - component: {fileID: 1539990906}
   m_Layer: 5
-  m_Name: HighScore
+  m_Name: HighScoreUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1626,8 +1643,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1127146058}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+      - m_Target: {fileID: 106676412}
+        m_TargetAssemblyTypeName: MenuUiHandler, Assembly-CSharp
         m_MethodName: QuitButtonClicked
         m_Mode: 1
         m_Arguments:

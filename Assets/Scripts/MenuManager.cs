@@ -42,6 +42,15 @@ public class MenuManager : MonoBehaviour
     public void SaveHighScore(bool QuitBClicked)
     {
         string path = Application.persistentDataPath + "/savefile.json";
+        if (!File.Exists(path))
+        {
+            SaveData data = new SaveData();
+            data.HighScore = 0;
+            data.SavedHScoreUserName = "null";
+            data.SavedUserName = "null";
+            File.WriteAllText(Application.persistentDataPath + "/savefile.json", path);
+        }
+       
         if (HighScore > 0)
         {
             string json = File.ReadAllText(path);

@@ -14,7 +14,7 @@ public class MenuManager : MonoBehaviour
     public static MenuManager Instance;         //singleton
 
     public int HighScore;
-    public string SavedUserName;
+    public string SavedUserName;                //=MenuUiHandler.InputNameUI.text
     public string SavedHScoreUserName;
 
     private void Awake()
@@ -39,7 +39,7 @@ public class MenuManager : MonoBehaviour
         public string SavedUserName;
     }
 
-    public void SaveHighScore()
+    public void SaveHighScore(bool QuitBClicked)
     {
         string path = Application.persistentDataPath + "/savefile.json";
         if (HighScore > 0)
@@ -51,11 +51,14 @@ public class MenuManager : MonoBehaviour
             {
                 dataNew.HighScore = HighScore;
                 dataNew.SavedHScoreUserName = SavedUserName;
-                dataNew.SavedUserName = SavedUserName;
-
+                if (QuitBClicked)
+                {
+                    dataNew.SavedUserName = SavedUserName;
+                }
                 json = JsonUtility.ToJson(dataNew);
                 File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
-            }else if (HighScore <= dataOld.HighScore)          //하이스코어 갱신 실패시 이전 세이브에서 최고점,최고점이름 복사
+            }
+            else if (HighScore <= dataOld.HighScore)          //하이스코어 갱신 실패시 이전 세이브에서 최고점,최고점이름 복사
             {
                 dataNew.SavedHScoreUserName = dataOld.SavedHScoreUserName;
                 dataNew.SavedUserName = SavedUserName;

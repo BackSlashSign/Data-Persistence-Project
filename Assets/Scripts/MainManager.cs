@@ -16,7 +16,7 @@ public class MainManager : MonoBehaviour
     public GameObject GameOverText;
 
     public int HighScore;
-    public string HScoreUserName = "Null";
+    public string HScoreUserName;
 
     private bool m_Started = false;
     private int m_Points;
@@ -81,7 +81,7 @@ public class MainManager : MonoBehaviour
         {
             MenuManager.Instance.HighScore = m_Points;
             MenuManager.Instance.SavedHScoreUserName = HScoreUserName;
-            MenuManager.Instance.SaveHighScore();
+            MenuManager.Instance.SaveHighScore(false);
         }
         m_GameOver = true;
         GameOverText.SetActive(true);

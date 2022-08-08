@@ -11,7 +11,7 @@ public class MenuUiHandler : MonoBehaviour
 {
     public int HighScore;
     public TextMeshProUGUI HighScoreUI;
-    public TextMeshProUGUI InputNameUI;
+    public TMP_InputField InputNameUI;
     private string UserName;
     private string HighscoreUserName;
 
@@ -21,20 +21,25 @@ public class MenuUiHandler : MonoBehaviour
         UserName = MenuManager.Instance.SavedUserName;
         HighScore = MenuManager.Instance.HighScore;
         HighscoreUserName = MenuManager.Instance.SavedHScoreUserName;
+        Debug.Log("SavedHScoreUserName :/"+MenuManager.Instance.SavedHScoreUserName+"/");
         HighScoreUI.text = $"HighScore : {HighscoreUserName} : {HighScore}";
 
+        Debug.Log("before InputNameUI.text :/" + InputNameUI.text + "/");
         InputNameUI.text = $"{UserName}";
+        Debug.Log("after InputNameUI.text :/" + InputNameUI.text + "/");
     }
 
     public void StartButtonClicked()
     {
-        MenuManager.Instance.SavedUserName = UserName;
+        MenuManager.Instance.SavedUserName = InputNameUI.text;
+        Debug.Log("StartButtonClicked InputNameUI.text :/" + InputNameUI.text + "/");
         SceneManager.LoadScene(1);
     }
     public void QuitButtonClicked()
     {
-        MenuManager.Instance.SavedUserName = UserName;
-        MenuManager.Instance.SaveHighScore();
+        MenuManager.Instance.SavedUserName = InputNameUI.text;
+        MenuManager.Instance.SaveHighScore(true);
+        Debug.Log("QuitButtonClicked InputNameUI.text :/" + InputNameUI.text + "/");
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else

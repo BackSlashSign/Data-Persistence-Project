@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HighScore: 0
   HighScoreUI: {fileID: 1539990906}
-  InputNameUI: {fileID: 1449611869}
+  InputNameUI: {fileID: 936582229}
 --- !u!1 &627834784
 GameObject:
   m_ObjectHideFlags: 0
